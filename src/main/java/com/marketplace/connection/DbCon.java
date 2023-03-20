@@ -10,7 +10,7 @@ public class DbCon {
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         if (connection==null){
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_cart");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/MarketPlaceDB", "root", "Bongo@501");
             System.out.println("connected");
         }
         return connection;
