@@ -18,16 +18,16 @@
     <div class="card w-50 mx-auto my-5">
         <div class="card-header text-center">User Login</div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="LoginServlet" method="post">
 
                 <div class="form-group">
-                    <label>Email  Address</label>
+                    <label>Email</label>
                     <input type="email" class="form-control" name="login-email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="login-assword" placeholder="*******" required>
+                    <input type="password" class="form-control" name="login-password" placeholder="*******" required>
                 </div>
 
                 <div class="text-center my-3">
