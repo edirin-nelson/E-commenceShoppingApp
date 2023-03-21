@@ -1,4 +1,6 @@
-<%@ page import="com.marketplace.model.User" %><%--
+<%@ page import="com.marketplace.model.User" %>
+<%@ page import="com.marketplace.model.Cart" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: decagon
   Date: 3/18/23
@@ -9,6 +11,11 @@
 <% User auth = (User) request.getSession().getAttribute("auth");
     if (auth != null)
         response.sendRedirect("index.jsp");
+
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
 %>
 <!doctype html>
 <html lang="en">

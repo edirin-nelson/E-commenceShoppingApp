@@ -3,12 +3,19 @@
 <%@ page import="com.marketplace.dao.ProductDao" %>
 <%@ page import="com.marketplace.model.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.marketplace.model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
 <% User auth = (User) request.getSession().getAttribute("auth");
     if (auth != null)
         request.setAttribute("auth", auth);
 
     ProductDao pd = new ProductDao(DbCon.getConnection());
     List<Product> products = pd.getAllProduct();
+
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
 %>
 <!doctype html>
 <html lang="en">
