@@ -29,14 +29,14 @@ public class LoginServlet extends HttpServlet {
                 UserDao udao = new UserDao(DbCon.getConnection());
                 User user = udao.userLogin(email, password);
 
-                if (user != null)
-                    out.print("user login");
+                if (user != null){
+                    request.getSession().setAttribute("auth", user);
+                    response.sendRedirect("index.jsp");
+                }
                 else out.print("user login failed");
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }
-
-            out.print(email + password);
         }
     }
 }

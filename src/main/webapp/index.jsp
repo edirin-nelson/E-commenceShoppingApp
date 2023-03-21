@@ -1,4 +1,9 @@
 <%@ page import="com.marketplace.connection.DbCon" %>
+<%@ page import="com.marketplace.model.User" %>
+<% User auth = (User) request.getSession().getAttribute("auth");
+    if (auth != null)
+        request.setAttribute("auth", auth);
+%>
 <!doctype html>
 <html lang="en">
 <head>
