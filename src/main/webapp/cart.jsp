@@ -48,25 +48,24 @@
             <tbody>
             <%
               if (cart_list != null) {
-                for (Cart c : cartProduct) {
-            %>
-            <tr>
-              <td><%=c.getName()%></td>
-              <td><%=c.getCategory()%></td>
-              <td><%= c.getPrice()%></td>
-              <td>
-                <form action="order-now" method="post" class="form-inline">
-                  <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
-                  <div class="form-group d-flex justify-content-between">
-                    <a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>
-                    <input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly>
-                    <a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-sm">Buy</button>
-                </form>
-              </td>
-              <td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
-            </tr>
+                for (Cart c : cartProduct) {%>
+                      <tr>
+                        <td><%=c.getName()%></td>
+                        <td><%=c.getCategory()%></td>
+                        <td><%= c.getPrice()%></td>
+                        <td>
+                          <form action="order-now" method="post" class="form-inline">
+                            <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
+                            <div class="form-group d-flex justify-content-between">
+                              <a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
+                              <input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly>
+                              <a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Buy</button>
+                          </form>
+                        </td>
+                        <td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
+                      </tr>
 
             <%
                 }}%>

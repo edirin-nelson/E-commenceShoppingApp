@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-@WebServlet(name = "AddToCartServlet", value = "/AddToCartServlet")
+@WebServlet(name = "AddToCartServlet", value = "/add-to-cart")
 public class  AddToCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +29,8 @@ public class  AddToCartServlet extends HttpServlet {
             if (cart_list == null) {
                 cartList.add(cm);
                 session.setAttribute("cart-list", cartList);
-                response.sendRedirect("index.jsp");            }else {
+                response.sendRedirect("index.jsp");
+            }else {
                 cartList= cart_list;
                 boolean exist = false;
 
