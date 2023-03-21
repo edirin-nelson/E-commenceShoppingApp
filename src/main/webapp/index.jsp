@@ -8,7 +8,7 @@
         request.setAttribute("auth", auth);
 
     ProductDao pd = new ProductDao(DbCon.getConnection());
-    List<Product> productList = pd.getAllProduct();
+    List<Product> products = pd.getAllProduct();
 %>
 <!doctype html>
 <html lang="en">
@@ -23,8 +23,8 @@
         <div class="card-header my-3">All Products</div>
         <div class="row">
             <%
-            if (!productList.isEmpty()) {
-                for (Product p : productList) { %>
+            if (!products.isEmpty()) {
+                for (Product p : products) { %>
                     <div class="col-md-3 my-3">
                         <div class="card w-100" style="width: 18rem;">
                             <img src="product-image/<%= p.getImage()%>" class="card-img-top" alt="...">

@@ -1,5 +1,6 @@
 package com.marketplace.dao;
 
+import com.marketplace.model.Cart;
 import com.marketplace.model.Product;
 
 import java.sql.Connection;
@@ -36,6 +37,34 @@ public class ProductDao {
             }
         } catch (Exception e){
             e.printStackTrace();
+        }
+
+        return products;
+    }
+
+    public List<Cart> getCartProducts(ArrayList<Cart> cartlist) {
+        List<Cart> products = new ArrayList<>();
+
+        try {
+            if (cartlist.size() > 0) {
+                for (Cart item:cartlist){
+                    query = "select * from products where id=?";
+                    pst = this.con.prepareStatement(query);
+                    pst.setInt(1, item.getId());
+                    rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Cart row = new Cart();
+                        row.setId(rs.getInt("id"));
+                        row.setName(rs.getString("name"));
+                        row.setCategory(rs.getString("category"));
+                        row.setPrice(rs.getDouble("price")* item.getQuantity());
+                        row.setQuantity(rs.getInt(item.getQuantity()));
+                        products.add(row);
+                    }
+                }
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
         return products;
