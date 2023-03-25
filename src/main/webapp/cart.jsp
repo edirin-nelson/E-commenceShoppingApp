@@ -73,7 +73,7 @@
                                     <input type="text" name="quantity" class="form-control w-50" value="<%=c.getQuantity()%>" readonly>
                                     <a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm">Buy</button>
+<%--                                <button type="submit" class="btn btn-primary btn-sm">Buy</button>--%>
                             </form>
                         </td>
                         <td><a class="btn btn-sm btn-danger" href="remove-from-cart?id=<%=c.getId() %>">Remove</a></td>
