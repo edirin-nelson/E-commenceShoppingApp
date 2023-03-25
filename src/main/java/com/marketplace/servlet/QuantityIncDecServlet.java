@@ -49,4 +49,8 @@ public class QuantityIncDecServlet extends HttpServlet {
             }
         }
     }
+
+    public void nothing() {
+        //Do nothing
+    }
 }
